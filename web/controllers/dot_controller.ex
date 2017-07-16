@@ -4,6 +4,7 @@ defmodule Dot.DotController do
     json conn, 
       %{
         "version" => "1.0",
+        "sessionAttributes" => %{},
         "response" => %{
           "outputSpeech" => %{
             "type" => "Plaintext",
