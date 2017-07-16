@@ -6,9 +6,9 @@ defmodule Dot.DotController do
         "version" => "1.0",
         "response" => %{
           "outputSpeech" => %{
-            "type" => "Plaintext"
+            "type" => "Plaintext",
             "text" => "Hello World!",
-           }
+           },
            "shouldEndSession" => true
          }
        }
