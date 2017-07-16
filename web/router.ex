@@ -20,7 +20,8 @@ defmodule Dot.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Dot do
-  #   pipe_through :api
-  # end
+  scope "/api", Dot do
+    pipe_through :api
+    post "/dot", DotController, :mytime
+  end
 end
