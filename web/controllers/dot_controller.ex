@@ -7,7 +7,7 @@ defmodule Dot.DotController do
         "sessionAttributes" => %{},
         "response" => %{
           "outputSpeech" => %{
-            "type" => "Plaintext",
+            "type" => "PlainText",
             "text" => "Hello World!",
            },
            "shouldEndSession" => true
