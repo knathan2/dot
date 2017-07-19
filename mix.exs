@@ -36,6 +36,7 @@ defmodule Dot.Mixfile do
      {:cowboy, "~> 1.0"},
      {:httpoison, "~> 0.12.0"},
      {:feeder_ex, "~> 1.1"},
-     {:timex, "~> 3.1"}]
+     {:timex, "~> 3.1"},
+     {:bus, git: "https://github.com/knathan2/bus.git"}]
   end
 end
