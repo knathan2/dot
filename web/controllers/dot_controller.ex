@@ -1,6 +1,8 @@
 defmodule Dot.DotController do 
   use Dot.Web, :controller
-  def mytime(conn, _params) do
+  require Logger
+  def mytime(conn, params) do
+    Logger.info("#{inspect params}")
     json conn, 
       %{
         "version" => "1.0",
