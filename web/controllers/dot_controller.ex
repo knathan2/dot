@@ -5,7 +5,7 @@ defmodule Dot.DotController do
     
     %{"request" => %{"intent" => %{"name" => "HelloWorld", "slots" => %{"Date" => %{"name" => "Date", "value" => busDate}}}}} = params
     busStatus = Bus.get(busDate)
-    Logger.info("#{inspect status}")
+    Logger.info("#{inspect busStatus}")
     json conn, 
       %{
         "version" => "1.0",
