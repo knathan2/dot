@@ -13,7 +13,7 @@ defmodule Dot.DotController do
         "response" => %{
           "outputSpeech" => %{
             "type" => "PlainText",
-            "text" => "The bus status for " <> busDate <> " is " <> busStatus <> "",
+            "text" => "The bus status for " <> busDate <> " is " <> busStatus,
            },
            "shouldEndSession" => true
          }
