@@ -3,6 +3,7 @@ defmodule Dot.DotController do
   require Logger
   def mytime(conn, params) do
     Logger.info("#{inspect params}")
+    %{"request" => %{"intent" => %{"name" => "HelloWorld", "slots" => %{"Date" => %{"name" => "Date", "value" => busDate}}}}} = params
     json conn, 
       %{
         "version" => "1.0",
@@ -10,7 +11,7 @@ defmodule Dot.DotController do
         "response" => %{
           "outputSpeech" => %{
             "type" => "PlainText",
-            "text" => "Hello World!",
+            "text" => "The bus status for " <> busDate <> " is ...",
            },
            "shouldEndSession" => true
          }
