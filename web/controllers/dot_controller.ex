@@ -46,7 +46,7 @@ defmodule Dot.DotController do
         "response" => %{
           "outputSpeech" => %{
             "type" => "PlainText",
-            "text" => "The next bus arrives at " <> f <> ", " <> s <> " ,and " <> t,
+            "text" => "The next three buses arrive at " <> f <> ", " <> s <> " ,and " <> t,
            },
            "shouldEndSession" => true
          }
