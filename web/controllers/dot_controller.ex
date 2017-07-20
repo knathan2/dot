@@ -35,7 +35,7 @@ defmodule Dot.DotController do
        }
   end
 
-  def mytime(conn, params) do 
+  def mytime(conn, %{"request" => %{"intent" => %{"name" => "NextThree"}}}) do 
     [first|t] = Pheasant.timeStop
     [second|third] = t
     json conn, 
