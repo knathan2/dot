@@ -53,7 +53,7 @@ defmodule Dot.DotController do
        }
   end
 
-    def mytime(conn, %{"request" => %{"intent" => %{"name" => "Psych"}}}) do 
+    def mytime(conn, params) do 
     json conn, 
       %{
         "version" => "1.0",
@@ -61,7 +61,7 @@ defmodule Dot.DotController do
         "response" => %{
           "outputSpeech" => %{
             "type" => "PlainText",
-            "text" => "It's called surveillance Dad! ... I surveillate things. I am a purveyor of surveillerism",
+            "text" => "I couldn't understand your request. Try another command",
            },
            "shouldEndSession" => true
          }
