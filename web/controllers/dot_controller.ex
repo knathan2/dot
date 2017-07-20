@@ -53,4 +53,19 @@ defmodule Dot.DotController do
        }
   end
 
+    def mytime(conn, %{"request" => %{"intent" => %{"name" => "Psych"}}}) do 
+    json conn, 
+      %{
+        "version" => "1.0",
+        "sessionAttributes" => %{},
+        "response" => %{
+          "outputSpeech" => %{
+            "type" => "PlainText",
+            "text" => "I'm a purveyor of surveillerism",
+           },
+           "shouldEndSession" => true
+         }
+       }
+  end
+
 end
