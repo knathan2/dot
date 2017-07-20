@@ -36,8 +36,9 @@ defmodule Dot.DotController do
   end
 
   def mytime(conn, %{"request" => %{"intent" => %{"name" => "NextThree"}}}) do 
-    [h|t] = Pheasant.timeStop
-    [s|l] = t
+    [f|a] = Pheasant.timeStop
+    [s|b] = a
+    [t|c] = b
     json conn, 
       %{
         "version" => "1.0",
@@ -45,7 +46,7 @@ defmodule Dot.DotController do
         "response" => %{
           "outputSpeech" => %{
             "type" => "PlainText",
-            "text" => "The next bus arrives at " <> h <> ", " <> s <> " ,and " <> l,
+            "text" => "The next bus arrives at " <> f <> ", " <> s <> " ,and " <> t,
            },
            "shouldEndSession" => true
          }
