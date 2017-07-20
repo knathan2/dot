@@ -61,7 +61,7 @@ defmodule Dot.DotController do
         "response" => %{
           "outputSpeech" => %{
             "type" => "PlainText",
-            "text" => "It's called surveillance. I surveillate things. I am purveyor of surveillerism",
+            "text" => "It's called surveillance Dad! ... I surveillate things. I am a purveyor of surveillerism",
            },
            "shouldEndSession" => true
          }
