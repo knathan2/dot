@@ -17,7 +17,7 @@ defmodule Dot.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Dot, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext, :httpoison, :feeder_ex, :timex, :bus]]
+     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext, :httpoison, :feeder_ex, :timex, :bus, :pheasant]]
   end
 
   # Specifies which paths to compile per environment.
@@ -37,6 +37,7 @@ defmodule Dot.Mixfile do
      {:httpoison, "~> 0.12.0"},
      {:feeder_ex, "~> 1.1"},
      {:timex, "~> 3.1"},
-     {:bus, git: "https://github.com/knathan2/bus.git"}]
+     {:bus, git: "https://github.com/knathan2/bus.git"},
+     {:pheasant, git: "https://github.com/knathan2/pheasant.git"}]
   end
 end
