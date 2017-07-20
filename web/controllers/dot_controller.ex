@@ -53,7 +53,7 @@ defmodule Dot.DotController do
        }
   end
 
-  def mytime(conn, %{"request" => %{"intent" => %{"name" => "Locations", "slots" => %{"Loc" => %{"name" => "Loc", "value" => place}}}}} = params) do 
+  def mytime(conn, %{"request" => %{"intent" => %{"name" => "BusLines", "slots" => %{"Loc" => %{"name" => "Loc", "value" => place}}}}} = params) do 
     Logger.info("#{inspect params}")
     code = Locations.loc(place)
     json conn, 
