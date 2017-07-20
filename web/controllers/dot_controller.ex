@@ -19,7 +19,7 @@ defmodule Dot.DotController do
        }
   end
 
-  def mytime(conn, params) do 
+  def mytime(conn, %{"request" => %{"intent" => %{"name" => "PheasantStop"}}}) do 
     [h|t] = Pheasant.timeStop
     json conn, 
       %{
@@ -29,6 +29,23 @@ defmodule Dot.DotController do
           "outputSpeech" => %{
             "type" => "PlainText",
             "text" => "The next bus arrives at " <> h,
+           },
+           "shouldEndSession" => true
+         }
+       }
+  end
+
+  def mytime(conn, params) do 
+    [first|t] = Pheasant.timeStop
+    [second|third] = t
+    json conn, 
+      %{
+        "version" => "1.0",
+        "sessionAttributes" => %{},
+        "response" => %{
+          "outputSpeech" => %{
+            "type" => "PlainText",
+            "text" => "The next three buses arrive at " <> first <> " " <> second <> " and " <> third,
            },
            "shouldEndSession" => true
          }
