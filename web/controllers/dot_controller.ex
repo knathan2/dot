@@ -53,7 +53,7 @@ defmodule Dot.DotController do
        }
   end
 
-    def mytime(conn, params) do 
+    def mytime(conn, _params) do 
     json conn, 
       %{
         "version" => "1.0",
