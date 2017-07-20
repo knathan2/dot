@@ -55,7 +55,7 @@ defmodule Dot.DotController do
 
   def mytime(conn, %{"request" => %{"intent" => %{"name" => "BusLines", "slots" => %{"Loc" => %{"name" => "Loc", "value" => place}}}}} = params) do 
     Logger.info("#{inspect params}")
-    #code = Locations.loc(place)
+    code = Locations.loc(place)
     json conn, 
       %{
         "version" => "1.0",
@@ -63,7 +63,7 @@ defmodule Dot.DotController do
         "response" => %{
           "outputSpeech" => %{
             "type" => "PlainText",
-            "text" => "The three letter bus code going to " <> place,
+            "text" => "The three letter bus code going to " <> place <> " is " <> code,
            },
            "shouldEndSession" => true
          }
