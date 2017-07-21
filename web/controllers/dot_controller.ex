@@ -74,7 +74,7 @@ defmodule Dot.DotController do
     json conn, 
       %{
         "version" => "1.0",
-        "sessionAttributes" => %{},
+        "sessionAttributes" => %{:"problem" => "bad request"},
         "response" => %{
           "outputSpeech" => %{
             "type" => "PlainText",
