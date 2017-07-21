@@ -1,6 +1,21 @@
 defmodule Dot.DotController do 
   use Dot.Web, :controller
   require Logger
+  def mytime(conn, %{"request" => %{"intent" => %{"name" => "Introduction"}}}) do 
+    json conn, 
+      %{
+        "version" => "1.0",
+        "sessionAttributes" => %{},
+        "response" => %{
+          "outputSpeech" => %{
+            "type" => "PlainText",
+            "text" => "You can ask me for the bus status, times, or routes",
+           },
+           "shouldEndSession" => false
+         }
+       }
+  end
+
   def mytime(conn, %{"request" => %{"intent" => %{"name" => "BusStatus", "slots" => %{"Date" => %{"name" => "Date", "value" => busDate}}}}} = params) do
     
     busStatus = Bus.get(busDate)
@@ -80,7 +95,7 @@ defmodule Dot.DotController do
             "type" => "PlainText",
             "text" => "I couldn't understand your request. Try another command",
            },
-           "shouldEndSession" => false
+           "shouldEndSession" => true
          }
        }
   end
