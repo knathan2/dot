@@ -70,7 +70,7 @@ defmodule Dot.DotController do
        }
   end
 
-    def mytime(conn, %{"request" => %{"intent" => %{"name" => "Error"}}}) do 
+    def mytime(conn, params) do 
     json conn, 
       %{
         "version" => "1.0",
@@ -80,7 +80,7 @@ defmodule Dot.DotController do
             "type" => "PlainText",
             "text" => "I couldn't understand your request. Try another command",
            },
-           "shouldEndSession" => true
+           "shouldEndSession" => false
          }
        }
   end
