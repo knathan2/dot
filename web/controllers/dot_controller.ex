@@ -63,7 +63,7 @@ defmodule Dot.DotController do
             "type" => "PlainText",
             "text" => "The next bus time is " <> h,
            },
-           "shouldEndSession" => true
+           "shouldEndSession" => false
          }
        }
   end
