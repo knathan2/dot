@@ -95,7 +95,7 @@ defmodule Dot.DotController do
             "type" => "PlainText",
             "text" => "I couldn't understand your request. Try another command",
            },
-           "shouldEndSession" => true
+           "shouldEndSession" => false
          }
        }
   end
