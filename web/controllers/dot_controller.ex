@@ -43,7 +43,7 @@ defmodule Dot.DotController do
         "response" => %{
           "outputSpeech" => %{
             "type" => "PlainText",
-            "text" => "The next bus arrives at " <> h,
+            "text" => "The first availavle bus will arrive at the stop at " <> h,
            },
            "shouldEndSession" => false
          }
@@ -53,19 +53,34 @@ defmodule Dot.DotController do
   def mytime(conn, %{"request" => %{"intent" => %{"name" => "NextTime"}}} = params) do
     Logger.info("#{inspect params}") 
     %{"session" => %{"attributes" => %{"info" => data}}} = params
-    [h|t] = data
-    json conn, 
-      %{
-        "version" => "1.0",
-        "sessionAttributes" => %{:"info" => t},
-        "response" => %{
-          "outputSpeech" => %{
-            "type" => "PlainText",
-            "text" => "The next bus time is " <> h,
-           },
-           "shouldEndSession" => false
+    if data != [] do 
+      [h|t] = data
+      json conn, 
+        %{
+          "version" => "1.0",
+          "sessionAttributes" => %{:"info" => t},
+          "response" => %{
+            "outputSpeech" => %{
+              "type" => "PlainText",
+              "text" => "The next bus time is " <> h,
+             },
+             "shouldEndSession" => false
+           }
          }
-       }
+    else 
+      json conn, 
+        %{
+          "version" => "1.0",
+          "sessionAttributes" => %{},
+          "response" => %{
+            "outputSpeech" => %{
+              "type" => "PlainText",
+              "text" => "Bus data is unavailable on any more buses at the moment",
+             },
+             "shouldEndSession" => true
+           }
+         }
+    end
   end
 
   def mytime(conn, %{"request" => %{"intent" => %{"name" => "NextThree"}}}) do 
