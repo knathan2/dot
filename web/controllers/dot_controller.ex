@@ -52,8 +52,8 @@ defmodule Dot.DotController do
 
   def mytime(conn, %{"request" => %{"intent" => %{"name" => "NextTime"}}} = params) do
     Logger.info("#{inspect params}") 
-    %{"session" => %{"attributes" => data}} = params
-    [h|t] = data[:"info"]
+    %{"session" => %{"attributes" => %{"info" => data}}} = params
+    [h|t] = data
     json conn, 
       %{
         "version" => "1.0",
