@@ -39,11 +39,29 @@ defmodule Dot.DotController do
     json conn, 
       %{
         "version" => "1.0",
-        "sessionAttributes" => %{},
+        "sessionAttributes" => %{:"info" => t},
         "response" => %{
           "outputSpeech" => %{
             "type" => "PlainText",
             "text" => "The next bus arrives at " <> h,
+           },
+           "shouldEndSession" => false
+         }
+       }
+  end
+
+  def mytime(conn, %{"request" => %{"intent" => %{"name" => "NextTime"}}}) do
+    Logger.info("#{inspect params}") 
+    %{"session" => %{"attributes" => data}} = params
+    [h|t] = data[:"info"]
+    json conn, 
+      %{
+        "version" => "1.0",
+        "sessionAttributes" => %{},
+        "response" => %{
+          "outputSpeech" => %{
+            "type" => "PlainText",
+            "text" => "The next bus time is " <> h,
            },
            "shouldEndSession" => true
          }
@@ -89,7 +107,7 @@ defmodule Dot.DotController do
     json conn, 
       %{
         "version" => "1.0",
-        "sessionAttributes" => %{:"problem" => "bad request"},
+        "sessionAttributes" => %{},
         "response" => %{
           "outputSpeech" => %{
             "type" => "PlainText",
